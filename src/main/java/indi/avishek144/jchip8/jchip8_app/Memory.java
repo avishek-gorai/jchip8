@@ -1,0 +1,43 @@
+/* Copyright (C) 2025  Avishek Gorai <avishekgorai@myyahoo.com>
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+package indi.avishek144.jchip8.jchip8_app;
+
+final class Memory
+{
+    static final int STATRING_ADDRESS = 0x200;
+    static final int MAX_ADDRESS = 0xFFF;
+    private static final int TOTAL_SIZE = MAX_ADDRESS - STATRING_ADDRESS + 0x1;
+
+    private static int[] ram = new int[TOTAL_SIZE];
+
+    static int read(int address) throws InvalidMemoryAddressException
+    {
+        if (address > MAX_ADDRESS || address < STATRING_ADDRESS)
+            throw new InvalidMemoryAddressException(address);
+        else
+            return ram[address - STATRING_ADDRESS];
+    }
+
+    static void write(int address, int value) throws InvalidMemoryAddressException
+    {
+        if (address > MAX_ADDRESS || address < STATRING_ADDRESS)
+            throw new InvalidMemoryAddressException(address);
+        else
+            ram[address - STATRING_ADDRESS] = value;
+    }
+
+}
