@@ -16,28 +16,29 @@
 
 package indi.avishek144.jchip8.jchip8_app;
 
-final class Memory
+public class Memory
 {
-    static final int STATRING_ADDRESS = 0x200;
-    static final int MAX_ADDRESS = 0xFFF;
-    private static final int TOTAL_SIZE = MAX_ADDRESS - STATRING_ADDRESS + 0x1;
+    private static final int TOTAL_SIZE = 4096,
+    		MAX_ADDRESS = TOTAL_SIZE - 1;
 
     private static int[] ram = new int[TOTAL_SIZE];
 
-    static int read(int address) throws InvalidMemoryAddressException
+    int read(int address) throws InvalidMemoryAddressException
     {
-        if (address > MAX_ADDRESS || address < STATRING_ADDRESS)
+        if (address > MAX_ADDRESS || address < 0)
             throw new InvalidMemoryAddressException(address);
         else
-            return ram[address - STATRING_ADDRESS];
+            return ram[address];
     }
 
-    static void write(int address, int value) throws InvalidMemoryAddressException
+    Memory write(int address, int value) throws InvalidMemoryAddressException
     {
-        if (address > MAX_ADDRESS || address < STATRING_ADDRESS)
+        if (address > MAX_ADDRESS || address < 0)
             throw new InvalidMemoryAddressException(address);
         else
-            ram[address - STATRING_ADDRESS] = value;
+            ram[address] = value;
+        
+        return this;
     }
 
 }

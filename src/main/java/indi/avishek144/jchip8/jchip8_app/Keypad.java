@@ -23,7 +23,7 @@ package indi.avishek144.jchip8.jchip8_app;
 /**
  * 
  */
-final class JIP8Keypad {
+public class Keypad {
 
 	public boolean pressed(int x) {
 		// TODO Auto-generated method stub

@@ -22,7 +22,7 @@ package indi.avishek144.jchip8.jchip8_app;
 /**
  * 
  */
-public final class StackUnderflowException 
+public class StackUnderflowException 
 extends Exception {
 
 	/**

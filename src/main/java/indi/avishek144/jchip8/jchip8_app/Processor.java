@@ -18,7 +18,7 @@ package indi.avishek144.jchip8.jchip8_app;
 
 import java.util.Random;
 
-final class Processor
+public class Processor
 {
     private int[] stack    = new int[Integer.MAX_VALUE],
                   register = new int[16];
@@ -29,16 +29,17 @@ final class Processor
                 sound_timer         = 0,
                 index;
     
-    private JIP8Display screen;
-    private JIP8Keypad keypad;
+    private Display screen;
+    private Keypad keypad;
+    private Memory memory;
 
 
     public void start(String[] args)
     {
         while (true) {
             try {
-                var instruction_msb = Memory.read(instruction_pointer++);
-                var instruction_lsb = Memory.read(instruction_pointer++);
+                var instruction_msb = memory.read(instruction_pointer++);
+                var instruction_lsb = memory.read(instruction_pointer++);
 
                 var instruction = instruction_msb * 0x100 + instruction_lsb;
                 var x = instruction_msb % 0x10;
@@ -59,10 +60,7 @@ final class Processor
                     }
 
                     case 0x1 -> {
-                        if (address > Memory.MAX_ADDRESS || address < Memory.STATRING_ADDRESS)
-                            throw new InvalidMemoryAddressException(address);
-                        else
-                            instruction_pointer = address;
+                    	instruction_pointer = address;
                     }
 
                     case 0x2 -> {
@@ -176,10 +174,7 @@ final class Processor
                     case 0xA -> index = address;
 
                     case 0xB -> {
-                        if (address > Memory.MAX_ADDRESS || address < Memory.STATRING_ADDRESS)
-                            throw new InvalidMemoryAddressException(address);
-                        else
-                            instruction_pointer = register[0x0] + address;
+                    	instruction_pointer = register[0x0] + address;
                     }
 
                     case 0xC -> register[x] = (new Random().nextInt()) & instruction_lsb;
@@ -231,13 +226,13 @@ final class Processor
                             case 0x55 -> {
                                 var start_address = index;
                                 for (var i = 0; i < x; ++i, ++start_address)
-                                    Memory.write(start_address, register[i]);
+                                    memory.write(start_address, register[i]);
                             }
 
                             case 0x65 -> {
                                 var start_address = index;
                                 for (var i = 0; i < x; ++i, ++start_address)
-                                    register[i] = Memory.read(start_address);
+                                    register[i] = memory.read(start_address);
                             }
 
                             default -> throw new InvalidInstructionException(instruction, instruction_pointer-2);

@@ -21,7 +21,7 @@ package indi.avishek144.jchip8.jchip8_app;
 /**
  * 
  */
-final class StackOverflowException
+public class StackOverflowException
 extends Exception {
 
 	/**

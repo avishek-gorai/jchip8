@@ -22,7 +22,7 @@ package indi.avishek144.jchip8.jchip8_app;
 /**
  * 
  */
-final class InvalidMemoryAddressException 
+public class InvalidMemoryAddressException 
 extends Exception {
 	/**
 	 * 

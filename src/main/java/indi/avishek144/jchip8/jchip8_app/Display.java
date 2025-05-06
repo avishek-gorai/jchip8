@@ -23,9 +23,9 @@ package indi.avishek144.jchip8.jchip8_app;
 /**
  * 
  */
-final class JIP8Display {
+public class Display {
 
-	public JIP8Display clear() {
+	public Display clear() {
 		// TODO Auto-generated method stub
 		return this;
 	}
