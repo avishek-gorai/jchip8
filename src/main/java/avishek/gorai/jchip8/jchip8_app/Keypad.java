@@ -14,20 +14,25 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/**
- * 
- */
-package indi.avishek144.jchip8.jchip8_app;
 
 /**
  * 
  */
-public class StackUnderflowException 
-extends Exception {
+package avishek.gorai.jchip8.jchip8_app;
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -7136951776328314974L;
+/**
+ * 
+ */
+public class Keypad {
+
+	public boolean pressed(int x) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+    public int getKey() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
 }

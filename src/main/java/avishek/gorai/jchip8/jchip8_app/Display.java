@@ -14,22 +14,25 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/**
- * 
- */
-package indi.avishek144.jchip8.jchip8_app;
 
 /**
  * 
  */
-public class InvalidMemoryAddressException 
-extends Exception {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1069375446803199115L;
+package avishek.gorai.jchip8.jchip8_app;
 
-	public InvalidMemoryAddressException(int address) {
-		// TODO Auto-generated constructor stub
+/**
+ * 
+ */
+public class Display {
+
+	public Display clear() {
+		// TODO Auto-generated method stub
+		return this;
 	}
+
+	public boolean draw(int i, int j, int index, int k) {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
 }

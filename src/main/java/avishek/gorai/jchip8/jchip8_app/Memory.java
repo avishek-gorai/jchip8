@@ -14,23 +14,42 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/**
- * 
- */
-package indi.avishek144.jchip8.jchip8_app;
+package avishek.gorai.jchip8.jchip8_app;
 
-/**
- * 
- */
-public class InvalidInstructionException
-extends Exception {
+class Memory
+{
+    private int[] ram;
+    
+    Memory() {
+    	setRam(new int[Memory.getTotalSize()]);
+    }
+
+    private static int getTotalSize() {
+        return 4096;
+    }
+
+    /**
+	 * @return the ram
+	 */
+	private int[] getRam() {
+		return ram;
+	}
 
 	/**
-	 * 
+	 * @param ram the ram to set
 	 */
-	private static final long serialVersionUID = -8042555204086175382L;
-	
-	public InvalidInstructionException(int instruction, int instruction_pointer) {
-	
+	private Memory setRam(int[] ram) {
+		this.ram = ram;
+		return this;
 	}
+
+	int read(int address) {
+        return getRam()[address];
+    }
+
+    Memory write(int address, int value) {
+        getRam()[address] = value;
+        return this;
+    }
+
 }

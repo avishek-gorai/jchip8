@@ -12,27 +12,26 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- */
+*/
+package avishek.gorai.jchip8.jchip8_app;
 
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
-/**
- * 
- */
-package indi.avishek144.jchip8.jchip8_app;
+public class App
+extends JFrame {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -5465098962286923212L;
 
-/**
- * 
- */
-public class Display {
-
-	public Display clear() {
-		// TODO Auto-generated method stub
-		return this;
-	}
-
-	public boolean draw(int i, int j, int index, int k) {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
+    App() {
+        super("jCHIP8");
+        setSize(300, 300);
+        setVisible(true);
+    }
+    
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new App());
+    }
 }
