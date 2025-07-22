@@ -12,7 +12,7 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
-*/
+ */
 package avishek.gorai.jchip8.jchip8_app;
 
 import javax.swing.JFrame;

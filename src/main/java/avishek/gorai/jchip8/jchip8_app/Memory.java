@@ -16,8 +16,8 @@
 
 package avishek.gorai.jchip8.jchip8_app;
 
-class Memory
-{
+class Memory {
+    private static final int totalSize = 4096;
     private int[] ram;
     
     Memory() {
@@ -25,7 +25,7 @@ class Memory
     }
 
     private static int getTotalSize() {
-        return 4096;
+        return totalSize;
     }
 
     /**

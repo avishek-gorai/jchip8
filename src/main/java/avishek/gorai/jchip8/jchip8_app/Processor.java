@@ -18,7 +18,7 @@ package avishek.gorai.jchip8.jchip8_app;
 
 import java.util.Random;
 
-public class Processor {
+class Processor {
     private int[] stack, registers;
     private int instructionPointer, stackPointer, delayTimer, soundTimer, index;
     private Display screen;
@@ -219,6 +219,7 @@ public class Processor {
                 case 0x0 -> {
                     switch (address) {
                         case 0x0E0 -> getScreen().clear();
+                        
                         case 0x0EE -> setInstructionPointer(pop());
                     }
                 }
@@ -258,13 +259,21 @@ public class Processor {
                     var n = instruction_lsb % 0x10;
                     switch (n) {
                         case 0x0 -> setRegister(y, getRegister(x));
+                        
                         case 0x1 -> bitwiseOrRegister(x, getRegister(y));
+                        
                         case 0x2 -> bitwiseAndRegister(x, getRegister(y));
+                        
                         case 0x3 -> bitwiseXorRegister(x, getRegister(y));
+                        
                         case 0x4 -> addToRegisterWithCarry(x, getRegister(y));
+                        
                         case 0x5 -> substractFromRegisterWithBorrow(x, getRegister(y));
+                        
                         case 0x6 -> shiftRightRegister(x);
+                        
                         case 0x7 -> substractFromRegisterWithBorrow(y, getRegister(x));
+                        
                         case 0xE -> shiftLeftregister(x);
                     }
                 }

@@ -23,14 +23,14 @@ package avishek.gorai.jchip8.jchip8_app;
 /**
  * 
  */
-public class Keypad {
+class Keypad {
 
-	public boolean pressed(int x) {
+	boolean pressed(int x) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-    public int getKey() {
+    int getKey() {
         // TODO Auto-generated method stub
         return 0;
     }
