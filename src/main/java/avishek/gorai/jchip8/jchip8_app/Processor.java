@@ -36,169 +36,112 @@ class Processor {
         setMemory(new Memory());
     }
     
-    private Processor incrementInstructionPointerBy(int n) {
+    Processor incrementInstructionPointerBy(int n) {
         setInstructionPointer(getInstructionPointer() + n);
         return this;
     }
     
-    private Processor incrementInstructionPointer() {
+    Processor incrementInstructionPointer() {
         incrementInstructionPointerBy(1);
         return this;
     }
 
-    /**
-     * @return the stack
-     */
-    private int[] getStack() {
+    int[] getStack() {
         return stack;
     }
 
-    /**
-     * @param stack the stack to set
-     */
-    private Processor setStack(int[] stack) {
+    Processor setStack(int[] stack) {
         this.stack = stack;
         return this;
     }
 
-    /**
-     * @return the register
-     */
-    private int[] getRegisters() {
+    int[] getRegisters() {
         return registers;
     }
 
-    /**
-     * @param register the register to set
-     */
-    private Processor setRegisters(int[] register) {
+    Processor setRegisters(int[] register) {
         this.registers = register;
         return this;
     }
 
-    /**
-     * @return the instruction_pointer
-     */
-    private int getInstructionPointer() {
+    int getInstructionPointer() {
         return instructionPointer;
     }
 
-    /**
-     * @param instruction_pointer the instruction_pointer to set
-     */
-    private Processor setInstructionPointer(int instruction_pointer) {
+    Processor setInstructionPointer(int instruction_pointer) {
         this.instructionPointer = instruction_pointer;
         return this;
     }
 
-    /**
-     * @return the stack_pointer
-     */
-    private int getStackPointer() {
+    int getStackPointer() {
         return stackPointer;
     }
 
-    /**
-     * @param stack_pointer the stack_pointer to set
-     */
-    private Processor setStackPointer(int stack_pointer) {
+    Processor setStackPointer(int stack_pointer) {
         this.stackPointer = stack_pointer;
         return this;
     }
 
-    /**
-     * @return the delay_timer
-     */
-    private int getDelayTimer() {
+    int getDelayTimer() {
         return delayTimer;
     }
 
-    /**
-     * @param delay_timer the delay_timer to set
-     */
-    private Processor setDelayTimer(int delay_timer) {
+    Processor setDelayTimer(int delay_timer) {
         this.delayTimer = delay_timer;
         return this;
     }
 
-    /**
-     * @param sound_timer the sound_timer to set
-     */
-    private Processor setSoundTimer(int sound_timer) {
+    Processor setSoundTimer(int sound_timer) {
         this.soundTimer = sound_timer;
         return this;
     }
 
-    /**
-     * @return the index
-     */
-    private int getIndex() {
+    int getIndex() {
         return index;
     }
 
-    /**
-     * @param index the index to set
-     */
-    private Processor setIndex(int index) {
+    Processor setIndex(int index) {
         this.index = index % 0x1000;
         return this;
     }
 
-    /**
-     * @return the screen
-     */
-    private Display getScreen() {
+    Display getScreen() {
         return screen;
     }
 
-    /**
-     * @param screen the screen to set
-     */
-    private Processor setScreen(Display screen) {
+    Processor setScreen(Display screen) {
         this.screen = screen;
         return this;
     }
 
-    /**
-     * @return the keypad
-     */
-    private Keypad getKeypad() {
+    Keypad getKeypad() {
         return keypad;
     }
 
-    /**
-     * @param keypad the keypad to set
-     */
-    private Processor setKeypad(Keypad keypad) {
+    Processor setKeypad(Keypad keypad) {
         this.keypad = keypad;
         return this;
     }
 
-    /**
-     * @return the memory
-     */
-    private Memory getMemory() {
+    Memory getMemory() {
         return memory;
     }
 
-    /**
-     * @param memory the memory to set
-     */
-    private Processor setMemory(Memory memory) {
+    Processor setMemory(Memory memory) {
         this.memory = memory;
         return this;
     }
     
-    private int getRegister(int n) {
+    int getRegister(int n) {
         return getRegisters()[n];
     }
     
-    private Processor setRegister(int n, int value) {
+    Processor setRegister(int n, int value) {
         getRegisters()[n] = value;
         return this;
     }
     
-    private Processor addToRegister(int r, int n) {
+    Processor addToRegister(int r, int n) {
         setRegister(r, getRegister(r) + n);
         return this;
     }
@@ -353,18 +296,18 @@ class Processor {
         }
     }
 
-    private Processor shiftLeftregister(int r) {
+    Processor shiftLeftregister(int r) {
         setRegister(r, getRegister(r) << 1);
         return this;
     }
 
-    private Processor shiftRightRegister(int r) {
+    Processor shiftRightRegister(int r) {
         setRegister(0xF, getRegister(r) % 2);
         setRegister(r, getRegister(r) >> 1);
         return this;
     }
 
-    private Processor substractFromRegisterWithBorrow(int r, int n) {
+    Processor substractFromRegisterWithBorrow(int r, int n) {
         substractFromregister(r, n);
         if (r >= n) {
             setRegister(0xF, 0);
@@ -375,12 +318,12 @@ class Processor {
         return this;
     }
 
-    private Processor substractFromregister(int r, int n) {
+    Processor substractFromregister(int r, int n) {
         setRegister(r, getRegister(r) - n);
         return this;
     }
 
-    private Processor addToRegisterWithCarry(int r, int n) {
+    Processor addToRegisterWithCarry(int r, int n) {
         addToRegister(r, n);
         if (getRegister(r) > 0xFF) {
             setRegister(0xF, 1);
@@ -391,27 +334,27 @@ class Processor {
         return this;
     }
 
-    private Processor bitwiseXorRegister(int r, int n) {
+    Processor bitwiseXorRegister(int r, int n) {
         setRegister(r, getRegister(r) ^ n);
         return this;
     }
 
-    private Processor bitwiseAndRegister(int x, int n) {
+    Processor bitwiseAndRegister(int x, int n) {
         setRegister(x, getRegister(x) & n);
         return this;
     }
 
-    private Processor bitwiseOrRegister(int x, int n) {
+    Processor bitwiseOrRegister(int x, int n) {
         setRegister(x, getRegister(x) | n);
         return this;
     }
 
-    private int pop() {
+    int pop() {
         setStackPointer(getStackPointer() - 1);
         return getStack()[getStackPointer()];
     }
 
-    private Processor push(int address) {
+    Processor push(int address) {
         getStack()[getStackPointer()] = address;
         setStackPointer(getStackPointer() + 1);
         return this;

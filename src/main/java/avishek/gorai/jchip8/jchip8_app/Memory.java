@@ -24,20 +24,14 @@ class Memory {
     	setRam(new int[Memory.getTotalSize()]);
     }
 
-    private static int getTotalSize() {
+    static int getTotalSize() {
         return totalSize;
     }
-
-    /**
-	 * @return the ram
-	 */
-	private int[] getRam() {
+    
+	int[] getRam() {
 		return ram;
 	}
 
-	/**
-	 * @param ram the ram to set
-	 */
 	private Memory setRam(int[] ram) {
 		this.ram = ram;
 		return this;

@@ -14,10 +14,6 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-
-/**
- * 
- */
 package avishek.gorai.jchip8.jchip8_app;
 
 /**
@@ -26,12 +22,10 @@ package avishek.gorai.jchip8.jchip8_app;
 class Keypad {
 
 	boolean pressed(int x) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
     int getKey() {
-        // TODO Auto-generated method stub
         return 0;
     }
 

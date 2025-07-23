@@ -20,9 +20,6 @@ import javax.swing.SwingUtilities;
 
 public class App
 extends JFrame {
-    /**
-     * 
-     */
     private static final long serialVersionUID = -5465098962286923212L;
 
     App() {

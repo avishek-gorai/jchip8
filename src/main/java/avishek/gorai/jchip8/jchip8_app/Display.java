@@ -14,10 +14,6 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-
-/**
- * 
- */
 package avishek.gorai.jchip8.jchip8_app;
 
 import javax.swing.JPanel;
@@ -27,9 +23,6 @@ import javax.swing.JPanel;
  */
 class Display 
 extends JPanel {
-    /**
-     * 
-     */
     private static final long serialVersionUID = 5022455962999905026L;
     private static final int disiplayHeight = 32, displayWidth = 64;
     private boolean[][] displayRam;
@@ -38,11 +31,11 @@ extends JPanel {
         setDisplayRam(new boolean[Display.getDisplayHeight()][Display.getDisplayWidth()]);
     }
     
-    private static int getDisplayHeight() {
+    static int getDisplayHeight() {
         return disiplayHeight;
     }
     
-    private static int getDisplayWidth() {
+    static int getDisplayWidth() {
         return displayWidth;
     }
 
@@ -55,32 +48,25 @@ extends JPanel {
 		return this;
 	}
 
-	private Display clearPixel(int x, int y) {
+	Display clearPixel(int x, int y) {
         getDisplayRam()[x][y] = false;
         return this;
     }
 
-    private Display putPixel(int i, int j) {
+    Display putPixel(int i, int j) {
 	    getDisplayRam()[i][j] = true;
         return this;
     }
 
     boolean draw(int i, int j, int index, int k) {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
-    /**
-     * @return the displayRam
-     */
-    public boolean[][] getDisplayRam() {
+    boolean[][] getDisplayRam() {
         return displayRam;
     }
 
-    /**
-     * @param displayRam the displayRam to set
-     */
-    public Display setDisplayRam(boolean[][] displayRam) {
+    Display setDisplayRam(boolean[][] displayRam) {
         this.displayRam = displayRam;
         return this;
     }
