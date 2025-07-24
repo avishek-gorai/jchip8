@@ -13,37 +13,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+package avishek.gorai.jchip8;
 
-package avishek.gorai.jchip8.jchip8_app;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
-class Memory {
-    private static final int totalSize = 4096;
-    private int[] ram;
+public class App
+extends JFrame {
+    private static final long serialVersionUID = -5465098962286923212L;
+
+    App() {
+        super("jCHIP8");
+        setSize(300, 300);
+        setVisible(true);
+    }
     
-    Memory() {
-    	setRam(new int[Memory.getTotalSize()]);
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new App());
     }
-
-    static int getTotalSize() {
-        return totalSize;
-    }
-    
-	int[] getRam() {
-		return ram;
-	}
-
-	private Memory setRam(int[] ram) {
-		this.ram = ram;
-		return this;
-	}
-
-	int read(int address) {
-        return getRam()[address];
-    }
-
-    Memory write(int address, int value) {
-        getRam()[address] = value;
-        return this;
-    }
-
 }

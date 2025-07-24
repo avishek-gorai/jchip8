@@ -14,7 +14,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package avishek.gorai.jchip8.jchip8_app;
+package avishek.gorai.jchip8;
 
 import javax.swing.JPanel;
 
